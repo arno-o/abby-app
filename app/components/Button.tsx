@@ -5,7 +5,7 @@ export default function Button(props:{ link: string, arrow: boolean, children: R
     return(
         <Link to={props.link} className="flex gap-4 py-4 px-8 bg-abby-blue text-2xl text-black capitalize">
             <div>{props.children}</div>
-            <img src={AbbyArrow} className={props.arrow ? '' : 'hidden'}/>
+            {props.arrow && <img src={AbbyArrow} alt="Arrow Icon" />}
         </Link>
     );
 }

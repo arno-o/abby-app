@@ -1,27 +1,28 @@
 import Button from "../components/Button";
-import onboardingItems from "../data/onboarding.json";
-
+import { onboardingItems } from "../data/data";
 import type { Route } from "./+types/onboarding";
 
-// export async function loader({ params }: Route.LoaderArgs) {
-//   const contact = await fetchOnboardingPage(params.onbId);
-//   return { contact };
-// }
+export function loader({ params }: Route.LoaderArgs) {
+    const onboardingId = params.onbId;
+    const pageId = parseInt(onboardingId);
+    return { pageId };
+}
 
 export default function Onboarding({ loaderData }: Route.ComponentProps) {
-    //const { onbItem } = loaderData;
+
+    const activePage = onboardingItems.items[loaderData.pageId];
 
     return (
         <div className="h-[100vh] flex items-center px-12">
             <div className="flex flex-col gap-12 items-center">
                 <div className="flex flex-col text-center gap-4">
                     <img src="" alt="" />
-                    <h3 className="text-4xl">{onboardingItems.items[1].title}</h3>
-                    <p className="text-2xl">Discover and grow your identity through presence and participation.</p>
+                    <h3 className="text-4xl">{activePage.title}</h3>
+                    <p className="text-2xl">{activePage.description}</p>
                 </div>
                 <div className="">
                     <div className="" id="progress"></div>
-                    <Button link="/onboarding/2" arrow={true}>continue</Button>
+                    <Button link={activePage.linkTo} arrow={true}>continue</Button>
                 </div>
             </div>
         </div>

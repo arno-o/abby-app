@@ -13,7 +13,7 @@ export const onboardingItems: OnboardingData = {
         {
             linkTo: "/onboarding/1",
             title: "Welcome",
-            description: "Discover and grow your identity through presence and participation."
+            description: "Discover and grow your identity through presence and participation!"
         },
         {
             linkTo: "/onboarding/2",

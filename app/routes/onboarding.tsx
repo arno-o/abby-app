@@ -1,5 +1,6 @@
 import { onboardingItems } from "../data/data";
 import type { Route } from "./+types/onboarding";
+import ButtonIcon from "~/components/ButtonIcon";
 import ButtonLink from "../components/ButtonLink";
 
 import AbbyArrowLeft from "~/components/icons/AbbyArrowLeft";
@@ -22,6 +23,9 @@ export default function Onboarding({ loaderData }: Route.ComponentProps) {
                     <img src="" alt="" />
                     <h3 className="text-4xl">{activePage.title}</h3>
                     <p className="text-2xl">{activePage.description}</p>
+                    <ButtonIcon link="/">
+                        <AbbyArrowLeft size={30} />
+                    </ButtonIcon>
                 </div>
                 <div className="">
                     <div className="" id="progress"></div>

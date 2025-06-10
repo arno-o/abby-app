@@ -1,4 +1,4 @@
-const AbbyArrowRight = (props: { size: number }) => {
+const AbbyCross = (props: { size: number }) => {
     return(
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" width={props.size} height={props.size} viewBox="0 0 28 28" fill="none">
@@ -8,4 +8,4 @@ const AbbyArrowRight = (props: { size: number }) => {
     );
 }
 
-export default AbbyArrowRight;
+export default AbbyCross;

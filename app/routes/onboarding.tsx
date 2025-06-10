@@ -1,4 +1,4 @@
-import Button from "../components/Button";
+import ButtonLink from "../components/ButtonLink";
 import { onboardingItems } from "../data/data";
 import type { Route } from "./+types/onboarding";
 
@@ -22,7 +22,7 @@ export default function Onboarding({ loaderData }: Route.ComponentProps) {
                 </div>
                 <div className="">
                     <div className="" id="progress"></div>
-                    <Button link={activePage.linkTo} arrow={true}>continue</Button>
+                    <ButtonLink link={activePage.linkTo} arrow={true}>continue</ButtonLink>
                 </div>
             </div>
         </div>

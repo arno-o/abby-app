@@ -1,11 +1,12 @@
 import { Link } from 'react-router';
-import AbbyArrow from '../assets/img/icons/AbbyArrow.svg';
+
+import AbbyArrowRight from "~/components/icons/AbbyArrowRight";
 
 export default function ButtonLink(props:{ link: string, arrow: boolean, children: React.ReactNode}) {
     return(
-        <Link to={props.link} className="flex gap-4 py-4 px-8 bg-abby-blue text-2xl text-black capitalize" viewTransition>
+        <Link to={props.link} className="flex items-center gap-4 py-4 px-8 bg-abby-blue text-2xl text-black capitalize" viewTransition>
             <div>{props.children}</div>
-            {props.arrow && <img src={AbbyArrow} alt="Arrow Icon" />}
+            {props.arrow && <AbbyArrowRight size={20}/>}
         </Link>
     );
 }

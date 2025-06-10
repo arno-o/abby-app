@@ -1,6 +1,9 @@
-import ButtonLink from "../components/ButtonLink";
 import { onboardingItems } from "../data/data";
 import type { Route } from "./+types/onboarding";
+import ButtonLink from "../components/ButtonLink";
+
+import AbbyArrowLeft from "~/components/icons/AbbyArrowLeft";
+import AbbyArrowRight from "~/components/icons/AbbyArrowRight";
 
 export function loader({ params }: Route.LoaderArgs) {
     const onboardingId = params.onbId;
@@ -22,7 +25,7 @@ export default function Onboarding({ loaderData }: Route.ComponentProps) {
                 </div>
                 <div className="">
                     <div className="" id="progress"></div>
-                    <ButtonLink link={activePage.linkTo} arrow={true}>continue</ButtonLink>
+                    <ButtonLink link={activePage.linkTo} arrow={true}>test</ButtonLink>
                 </div>
             </div>
         </div>

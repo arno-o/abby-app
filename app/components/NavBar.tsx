@@ -4,33 +4,64 @@ import ProfileIcon from "./icons/navbar/Profile";
 import ScheduleIcon from "./icons/navbar/Schedule";
 import CommunityIcon from "./icons/navbar/Community";
 
-import { Link } from "react-router";
+import React from "react";
+import { Link, useLocation } from "react-router";
+
+const navData = {
+    items: [
+        {
+            label: "Live",
+            linkTo: "live",
+            icon: <LiveIcon />
+        },
+        {
+            label: "Community",
+            linkTo: "community",
+            icon: <CommunityIcon />
+        },
+        {
+            label: "Create",
+            linkTo: "create",
+            icon: <CreateIcon />
+        },
+        {
+            label: "Schedule",
+            linkTo: "schedule",
+            icon: <ScheduleIcon />
+        },
+        {
+            label: "Profile",
+            linkTo: "profile",
+            icon: <ProfileIcon />
+        },
+    ]
+}
 
 const NavBar = () => {
-    const defaultStyle = "flex flex-col self-end items-center gap-2 border-t-5 border-black pt-4"
+    const defaultStyle = "flex flex-col self-end items-center gap-2 border-t-5 pt-4"
+    const location = useLocation();
 
-    return(
+    const isActive = (link: string) => {
+        if (location.pathname == link) {
+            return true;
+        } else { return false; }
+    }
+
+    return (
         <div className="flex justify-between content-end px-12 pb-7 bg-abby-blue w-full">
-            <div className={`${defaultStyle}`}>
-                <LiveIcon />
-                <p>Live</p>
-            </div>
-            <div className={`${defaultStyle}`}>
-                <CommunityIcon />
-                <p>Community</p>
-            </div>
-            <div className={`${defaultStyle}`}>
-                <CreateIcon />
-                <p>Create</p>
-            </div>
-            <div className={`${defaultStyle}`}>
-                <ScheduleIcon />
-                <p>Schedule</p>
-            </div>
-            <div className={`${defaultStyle}`}>
-                <ProfileIcon />
-                <p>Profile</p>
-            </div>
+            {navData.items.map((item) => {
+
+                const itemIsActive = isActive(`/${item.linkTo}`);
+
+                return (
+                    <Link key={item.linkTo} to={`/${item.linkTo}`} viewTransition>
+                        <div className={`${defaultStyle} ${itemIsActive ? "border-black" : "border-abby-blue"}`}>
+                            {React.cloneElement(item.icon, { active: itemIsActive })}
+                            <p className={itemIsActive ? "" : "opacity-30"}>{item.label}</p>
+                        </div>
+                    </Link>
+                );
+            })}
         </div>
     );
 }

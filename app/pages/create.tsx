@@ -1,8 +1,10 @@
 import NavBar from "~/components/NavBar";
 
 const Create = () => {
-    return(
-        <NavBar />
+    return (
+        <>
+            <NavBar />
+        </>
     );
 }
 

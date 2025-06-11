@@ -1,8 +1,10 @@
 import NavBar from "~/components/NavBar";
 
 const Profile = () => {
-    return(
-        <NavBar />
+    return (
+        <>
+            <NavBar />
+        </>
     );
 }
 

@@ -2,7 +2,10 @@ import NavBar from "~/components/NavBar";
 
 const Schedule = () => {
     return(
-        <NavBar />
+        <>
+            <div className="text-6xl pt-340">TESTJE</div>
+            <NavBar />
+        </>
     );
 }
 

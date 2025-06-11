@@ -21,7 +21,7 @@ export default function Onboarding({ loaderData }: Route.ComponentProps) {
     const activeColor = colorOptions[loaderData.pageId];
 
     return (
-        <div className={`h-[100vh] flex flex-col justify-between px-[16px] pb-16 pt-8 bg-abby-${activeColor}`}>
+        <div className={`h-[100vh] flex flex-col justify-between px-[12px] pb-16 pt-8 bg-abby-${activeColor}`}>
             <div id="topNav" className="flex justify-between">
                 <img src="/app/assets/img/AbbyYou_Logo.svg" alt="Abby You - Logo" width="170vw" />
                 <ButtonIcon link="/">

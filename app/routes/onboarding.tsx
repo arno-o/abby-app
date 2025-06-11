@@ -28,12 +28,12 @@ export default function Onboarding({ loaderData }: Route.ComponentProps) {
                     <AbbyCross size={35}/>
                 </ButtonIcon>
             </div>
-            <div className="flex flex-col gap-12">
+            <div className={`flex flex-col gap-12 ${loaderData.pageId % 2 == 0 ? "flex-col-reverse" : ""}`}>
                 <div className="flex flex-col gap-4">
                     <h3 className="text-4xl">{activePage.title}</h3>
-                    <img src={`/app/assets/img/onboarding/onboarding_img_${loaderData.pageId + 1}.png`} alt="Old couple at the Abby museum" className={loaderData.pageId === 2 ? "scale-[150%] py-17" : ""}/>
                     <p className="text-2xl">{activePage.description}</p>
                 </div>
+                <img src={`/app/assets/img/onboarding/onboarding_img_${loaderData.pageId + 1}.png`} alt="Old couple at the Abby museum" className={loaderData.pageId === 2 ? "scale-[150%] py-17" : ""}/>
             </div>
             <div id="bottomNav" className="flex justify-between w-full pb-6">
                 <ButtonIcon link={loaderData.pageId === 0 ? "" : `/onboarding/${loaderData.pageId - 1}`} disabled={loaderData.pageId === 0}>

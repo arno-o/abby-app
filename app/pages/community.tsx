@@ -37,7 +37,7 @@ const Community = () => {
                 <p className="text-2xl text-stone-500">Suggestions Abby is bringing to life</p>
                 {
                     chosenSuggestionItems.items.map((item) => (
-                        <ChosenSuggestion day={item.day} time={item.time} title={item.title} location={item.location}/>
+                        <ChosenSuggestion key={item.title} day={item.day} time={item.time} title={item.title} location={item.location}/>
                     ))
                 }
             </div>

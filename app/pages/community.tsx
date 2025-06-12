@@ -24,10 +24,9 @@ const Community = () => {
 
             <div className="px-4 py-8">
                 <h2 className="text-3xl mb-4">Weekly suggestions</h2>
-
                 {
-                    suggestionItems.items.map(item => (
-                        <SuggestionItem key={item.id} title={item.title} count={item.count} />
+                    suggestionItems.items.sort((a, b) => b.count - a.count).map(item => (
+                        <SuggestionItem key={item.count} title={item.title} count={item.count} />
                     ))
                 }
             </div>

@@ -7,15 +7,12 @@ const SuggestionItem = (props: { title: string, count: number }) => {
 
     const handleUpVote = () => {
         if (vote === 'up') {
-            // Clicking up arrow when already upvoted: unvote
             setVote(null);
             setDisplayCount(displayCount - 1);
         } else if (vote === 'down') {
-            // Clicking up arrow when downvoted: change vote to up
             setVote('up');
-            setDisplayCount(displayCount + 2); // +1 to negate previous downvote, +1 for new upvote
+            setDisplayCount(displayCount + 2);
         } else {
-            // No vote yet (vote is null): upvote
             setVote('up');
             setDisplayCount(displayCount + 1);
         }
@@ -23,15 +20,12 @@ const SuggestionItem = (props: { title: string, count: number }) => {
 
     const handleDownVote = () => {
         if (vote === 'down') {
-            // Clicking down arrow when already downvoted: unvote
             setVote(null);
             setDisplayCount(displayCount + 1);
         } else if (vote === 'up') {
-            // Clicking down arrow when upvoted: change vote to down
             setVote('down');
-            setDisplayCount(displayCount - 2); // -1 to negate previous upvote, -1 for new downvote
+            setDisplayCount(displayCount - 2);
         } else {
-            // No vote yet (vote is null): downvote
             setVote('down');
             setDisplayCount(displayCount - 1);
         }
@@ -49,7 +43,7 @@ const SuggestionItem = (props: { title: string, count: number }) => {
                 >
                     <AbbyArrowVote position="up" filled={vote === 'up'} />
                 </button>
-                {displayCount}
+                <p className="text-lg">{displayCount}</p>
                 <button
                     onClick={handleDownVote}
                     className="p-1"

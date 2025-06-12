@@ -58,7 +58,7 @@ export const suggestionItems: SuggestionData = {
         {
             id: 2,
             title: "Chocolate-making workshop",
-            count: 39
+            count: 21
         },
         {
             id: 3,

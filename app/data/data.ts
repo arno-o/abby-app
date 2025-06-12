@@ -1,11 +1,19 @@
+export interface OnboardingData {
+    items: OnboardingItem[];
+}
+
+export interface SuggestionData {
+    items: SuggestionItem[];
+}
+
+export interface ChosenSuggestionData {
+    items: ChosenSuggestionItem[];
+}
+
 export interface OnboardingItem {
     linkTo: string;
     title: string;
     description?: string;
-}
-
-export interface OnboardingData {
-    items: OnboardingItem[];
 }
 
 export interface SuggestionItem {
@@ -14,8 +22,11 @@ export interface SuggestionItem {
     count: number;
 }
 
-export interface SuggestionData {
-    items: SuggestionItem[];
+export interface ChosenSuggestionItem {
+    day: string;
+    time: string;
+    title: string;
+    location: string;
 }
 
 export const onboardingItems: OnboardingData = {
@@ -64,6 +75,29 @@ export const suggestionItems: SuggestionData = {
             id: 3,
             title: "Girls sleepover",
             count: 14
+        },
+    ]
+}
+
+export const chosenSuggestionItems: ChosenSuggestionData = {
+    items: [
+        {
+            day: "18 Jun",
+            time: "19:00 - 22:00",
+            title: "Coffee Talk",
+            location: "Abby Cafe"
+        },
+        {
+            day: "15 Jul",
+            time: "18:00 - 21:00",
+            title: "Thai Cooking Class",
+            location: "Salon"
+        },
+        {
+            day: "23 Jul",
+            time: "12:00 - 16:00",
+            title: "Creative Wishing Cards",
+            location: "Atelier"
         },
     ]
 }

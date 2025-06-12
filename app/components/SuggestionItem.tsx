@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AbbyArrowVote from "./icons/AbbyArrowDown";
+import AbbyArrowVote from "./icons/AbbyArrowVote";
 
 const SuggestionItem = (props: { title: string, count: number }) => {
     const [vote, setVote] = useState<'up' | 'down' | null>(null);

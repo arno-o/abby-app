@@ -1,7 +1,8 @@
 import NavBar from "~/components/NavBar";
 
-import { suggestionItems } from "../data/data";
+import { suggestionItems, chosenSuggestionItems } from "../data/data";
 import SuggestionItem from "~/components/SuggestionItem";
+import ChosenSuggestion from "~/components/ChosenSuggestion";
 import AbbyArrowRight from "~/components/icons/AbbyArrowRight";
 
 const Community = () => {
@@ -34,6 +35,11 @@ const Community = () => {
             <div className="px-4 py-8">
                 <h2 className="text-3xl mb-2">Brought to life</h2>
                 <p className="text-2xl text-stone-500">Suggestions Abby is bringing to life</p>
+                {
+                    chosenSuggestionItems.items.map((item) => (
+                        <ChosenSuggestion day={item.day} time={item.time} title={item.title} location={item.location}/>
+                    ))
+                }
             </div>
             <NavBar />
         </>

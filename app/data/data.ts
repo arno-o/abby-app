@@ -10,6 +10,10 @@ export interface ChosenSuggestionData {
     items: ChosenSuggestionItem[];
 }
 
+export interface ScheduleActivityData {
+    items: ScheduleActivityItem[];
+}
+
 export interface OnboardingItem {
     linkTo: string;
     title: string;
@@ -27,6 +31,14 @@ export interface ChosenSuggestionItem {
     time: string;
     title: string;
     location: string;
+}
+
+export interface ScheduleActivityItem {
+    title: string;
+    timespan: string;
+    location: string;
+    image_url: string;
+    type: string;
 }
 
 export const onboardingItems: OnboardingData = {
@@ -99,5 +111,52 @@ export const chosenSuggestionItems: ChosenSuggestionData = {
             title: "Creative Wishing Cards",
             location: "Atelier"
         },
+    ]
+}
+
+export const scheduleActivityItems: ScheduleActivityData = {
+    items: [
+        {
+            title: "Dieter Van Caneghem",
+            timespan: "29 MAR ‘25 <> 29 JUN ‘25",
+            location: "Gallery",
+            image_url: "1",
+            type: "expo"
+        },
+        {
+            title: "F**cklore. Reinventing Tradition",
+            timespan: "29 MAR ‘25 <> 14 SEP ‘25",
+            location: "Opening exhibition",
+            image_url: "2",
+            type: "expo"
+        },
+        {
+            title: "The Living by Rinus Van de Velde",
+            timespan: "29 MAR ‘25 <> 06 SEP ‘26",
+            location: "Living",
+            image_url: "3",
+            type: "expo"
+        },
+        {
+            title: "The Story of Abby",
+            timespan: "Permanent Audio Tour",
+            location: "Full Museum",
+            image_url: "4",
+            type: "expo"
+        },
+        {
+            title: "Blok @ Abby",
+            timespan: "3 JUN ‘25 <> 20 JUN ‘25",
+            location: "Atelier",
+            image_url: "5",
+            type: "activity"
+        },
+        {
+            title: "Listening Lecture Sigiswald Kijken",
+            timespan: "8 Jun 10:30 - 12:00",
+            location: "Salon",
+            image_url: "6",
+            type: "activity"
+        }
     ]
 }

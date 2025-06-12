@@ -1,14 +1,16 @@
 import NavBar from "~/components/NavBar";
+import ScheduleCard from "~/components/ScheduleCard";
 import AbbyArrowLeft from "~/components/icons/AbbyArrowLeft";
 import AbbyArrowRight from "~/components/icons/AbbyArrowRight";
 
 import { useState } from 'react';
+import { scheduleActivityItems } from "~/data/data";
 
 const Schedule = () => {
     const [dateNavFirst, setDateNavFirst] = useState(true);
 
     const handleDateNav = () => {
-        if (dateNavFirst) { setDateNavFirst(false) } else { setDateNavFirst(true) }
+        if (dateNavFirst) { setDateNavFirst(false) } else if (!dateNavFirst) { setDateNavFirst(true) }
     }
 
     return (
@@ -62,7 +64,10 @@ const Schedule = () => {
                 </div>
             </div>
 
-            
+            {scheduleActivityItems.items.map((item) => (
+                <ScheduleCard timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url}/>
+            ))}
+
             <NavBar />
         </>
     );

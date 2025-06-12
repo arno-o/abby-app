@@ -2,7 +2,7 @@ import LocationIcon from "./icons/Location";
 import BookmarkIcon from "./icons/BookmarkIcon";
 import AbbyArrowTilted from "./icons/AbbyArrowTilted";
 
-const ChosenSuggestion = (props: { day: string, time: string, title: string, location: string }) => {
+const ChosenSuggestion = (props: { day: string, time: string, title: string, location: string, bookmarked?: boolean }) => {
     return(
         <div className="flex justify-between bg-abby-green my-4 p-4 text-xl">
             <div className="flex flex-col gap-2">
@@ -16,7 +16,7 @@ const ChosenSuggestion = (props: { day: string, time: string, title: string, loc
                 </div>
             </div>
             <div className="flex flex-col justify-between py-2">
-                <BookmarkIcon />
+                <BookmarkIcon {...props.bookmarked ? {filled: true} : {}}/>
                 <AbbyArrowTilted />
             </div>
         </div>

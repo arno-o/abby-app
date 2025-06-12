@@ -8,6 +8,16 @@ export interface OnboardingData {
     items: OnboardingItem[];
 }
 
+export interface SuggestionItem {
+    id: number;
+    title: string;
+    count: number;
+}
+
+export interface SuggestionData {
+    items: SuggestionItem[];
+}
+
 export const onboardingItems: OnboardingData = {
     items: [
         {
@@ -30,5 +40,30 @@ export const onboardingItems: OnboardingData = {
             title: "Start at the Museum",
             description: "Scan your QR at Abby to activate your identity."
         }
+    ]
+}
+
+export const suggestionItems: SuggestionData = {
+    items: [
+        {
+            id: 0,
+            title: "Dance performance",
+            count: 54
+        },
+        {
+            id: 1,
+            title: "Crochet workshop",
+            count: 42
+        },
+        {
+            id: 2,
+            title: "Chocolate-making workshop",
+            count: 39
+        },
+        {
+            id: 3,
+            title: "Girls sleepover",
+            count: 14
+        },
     ]
 }

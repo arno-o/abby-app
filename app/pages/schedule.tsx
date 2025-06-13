@@ -4,6 +4,7 @@ import AbbyArrowLeft from "~/components/icons/AbbyArrowLeft";
 import AbbyArrowRight from "~/components/icons/AbbyArrowRight";
 
 import { useState } from 'react';
+import { Link } from "react-router";
 import { scheduleActivityItems } from "~/data/data";
 
 const Schedule = () => {
@@ -72,7 +73,9 @@ const Schedule = () => {
                 {scheduleActivityItems.items
                     .filter(item => activityNavFirst ? item.type === "activity" : item.type === "expo")
                     .map((item) => (
-                        <ScheduleCard key={item.image_url} timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url} type={item.type} />
+                        <Link to={`${item.id}`}>
+                            <ScheduleCard key={item.image_url} timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url} type={item.type} />
+                        </Link>
                     ))}
             </div>
 

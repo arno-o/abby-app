@@ -1,6 +1,10 @@
 import encodeQR from 'qr';
 import { useState } from "react";
+import { Link } from "react-router";
 import NavBar from "~/components/NavBar";
+
+import { scheduleActivityItems } from "~/data/data";
+import ScheduleCard from '~/components/ScheduleCard';
 
 const Profile = () => {
 
@@ -36,6 +40,15 @@ const Profile = () => {
                     <button onClick={() => setActiveTabIndex(0)} className={`transition-all m-3 text-center w-full p-4 text-abby-blue text-xl ${activeTabIndex == 0 ? activeActivity : ""}`}>Going</button>
                     <button onClick={() => setActiveTabIndex(1)} className={`transition-all m-3 text-center w-full p-4 text-abby-blue text-xl ${activeTabIndex == 1 ? activeActivity : ""}`}>Saved</button>
                     <button onClick={() => setActiveTabIndex(2)} className={`transition-all m-3 text-center w-full p-4 text-abby-blue text-xl ${activeTabIndex == 2 ? activeActivity : ""}`}>Organised</button>
+                </div>
+
+                <div className="">
+                    {scheduleActivityItems.items
+                        .map((item) => (
+                            <Link to={`${item.id}`}>
+                                <ScheduleCard key={item.image_url} timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url} type={item.type} />
+                            </Link>
+                        ))}
                 </div>
             </div>
 

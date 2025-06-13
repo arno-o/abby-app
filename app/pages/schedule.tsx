@@ -65,7 +65,7 @@ const Schedule = () => {
             </div>
 
             {scheduleActivityItems.items.map((item) => (
-                <ScheduleCard timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url}/>
+                <ScheduleCard key={item.image_url} timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url}/>
             ))}
 
             <NavBar />

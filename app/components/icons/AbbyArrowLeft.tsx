@@ -1,4 +1,4 @@
-const AbbyArrowLeft = (props: { size: number, disabled: boolean }) => {
+const AbbyArrowLeft = (props: { size: number, disabled?: boolean }) => {
     return(
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" width={props.size} height={props.size} viewBox="0 0 34 34" fill="none">

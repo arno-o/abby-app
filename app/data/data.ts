@@ -10,6 +10,10 @@ export interface ChosenSuggestionData {
     items: ChosenSuggestionItem[];
 }
 
+export interface ScheduleActivityData {
+    items: ScheduleActivityItem[];
+}
+
 export interface OnboardingItem {
     linkTo: string;
     title: string;
@@ -27,6 +31,17 @@ export interface ChosenSuggestionItem {
     time: string;
     title: string;
     location: string;
+}
+
+export interface ScheduleActivityItem {
+    id: number;
+    title: string;
+    timespan: string;
+    location: string;
+    image_url: string;
+    type: string;
+    subtitle: string;
+    description: string;
 }
 
 export const onboardingItems: OnboardingData = {
@@ -99,5 +114,70 @@ export const chosenSuggestionItems: ChosenSuggestionData = {
             title: "Creative Wishing Cards",
             location: "Atelier"
         },
+    ]
+}
+
+export const scheduleActivityItems: ScheduleActivityData = {
+    items: [
+        {
+            id: 0,
+            title: "Dieter Van Caneghem",
+            timespan: "29 MAR ‘25 <> 29 JUN ‘25",
+            location: "Gallery",
+            image_url: "1",
+            type: "expo",
+            subtitle: "Artistic construction photography about the birth of a new museum",
+            description: "Dieter Van Caneghem (Kortrijk, 1990) is a photographer who is fascinated by the constructed landscape. He uses photography as a medium to raise questions about how space is designed and planned. \n\nIn addition to being a photographer, he is also the co-founder of ELDERS, a nomadic collective for the presentation of contemporary artistic practices in Kortrijk and the region. For Abby, he documented the progress of the construction site for two years."
+        },
+        {
+            id: 1,
+            title: "F**cklore. Reinventing Tradition",
+            timespan: "29 MAR ‘25 <> 14 SEP ‘25",
+            location: "Opening exhibition",
+            image_url: "2",
+            type: "expo",
+            subtitle: "Artistic construction photography about the birth of a new museum",
+            description: "Dieter Van Caneghem (Kortrijk, 1990) is a photographer who is fascinated by the constructed landscape. He uses photography as a medium to raise questions about how space is designed and planned. \n\nIn addition to being a photographer, he is also the co-founder of ELDERS, a nomadic collective for the presentation of contemporary artistic practices in Kortrijk and the region. For Abby, he documented the progress of the construction site for two years."
+        },
+        {
+            id: 2,
+            title: "The Living by Rinus Van de Velde",
+            timespan: "29 MAR ‘25 <> 06 SEP ‘26",
+            location: "Living",
+            image_url: "3",
+            type: "expo",
+            subtitle: "Artistic construction photography about the birth of a new museum",
+            description: "Dieter Van Caneghem (Kortrijk, 1990) is a photographer who is fascinated by the constructed landscape. He uses photography as a medium to raise questions about how space is designed and planned. \n\nIn addition to being a photographer, he is also the co-founder of ELDERS, a nomadic collective for the presentation of contemporary artistic practices in Kortrijk and the region. For Abby, he documented the progress of the construction site for two years."
+        },
+        {
+            id: 3,
+            title: "The Story of Abby",
+            timespan: "Permanent Audio Tour",
+            location: "Full Museum",
+            image_url: "4",
+            type: "expo",
+            subtitle: "Artistic construction photography about the birth of a new museum",
+            description: "Dieter Van Caneghem (Kortrijk, 1990) is a photographer who is fascinated by the constructed landscape. He uses photography as a medium to raise questions about how space is designed and planned. \n\nIn addition to being a photographer, he is also the co-founder of ELDERS, a nomadic collective for the presentation of contemporary artistic practices in Kortrijk and the region. For Abby, he documented the progress of the construction site for two years."
+        },
+        {
+            id: 4,
+            title: "Blok @ Abby",
+            timespan: "3 JUN ‘25 <> 20 JUN ‘25",
+            location: "Atelier",
+            image_url: "5",
+            type: "activity",
+            subtitle: "Artistic construction photography about the birth of a new museum",
+            description: "Dieter Van Caneghem (Kortrijk, 1990) is a photographer who is fascinated by the constructed landscape. He uses photography as a medium to raise questions about how space is designed and planned. \n\nIn addition to being a photographer, he is also the co-founder of ELDERS, a nomadic collective for the presentation of contemporary artistic practices in Kortrijk and the region. For Abby, he documented the progress of the construction site for two years."
+        },
+        {
+            id: 5,
+            title: "Listening Lecture Sigiswald Kijken",
+            timespan: "8 Jun 10:30 - 12:00",
+            location: "Salon",
+            image_url: "6",
+            type: "activity",
+            subtitle: "Artistic construction photography about the birth of a new museum",
+            description: "Dieter Van Caneghem (Kortrijk, 1990) is a photographer who is fascinated by the constructed landscape. He uses photography as a medium to raise questions about how space is designed and planned. \n\nIn addition to being a photographer, he is also the co-founder of ELDERS, a nomadic collective for the presentation of contemporary artistic practices in Kortrijk and the region. For Abby, he documented the progress of the construction site for two years."
+        }
     ]
 }

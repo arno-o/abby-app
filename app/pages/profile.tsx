@@ -3,13 +3,16 @@ import { useState } from "react";
 import { Link } from "react-router";
 import NavBar from "~/components/NavBar";
 
-import { scheduleActivityItems } from "~/data/data";
+import BlobBackground from '~/components/Blob';
 import ScheduleCard from '~/components/ScheduleCard';
+import { scheduleActivityItems, identityItems } from "~/data/data";
 
 const Profile = () => {
 
-    const txt = 'Greetings from Devine!';
-    const svgElement = encodeQR(txt, 'svg');
+    const userIdentity = identityItems.items[0];
+    const qrContent = JSON.stringify(userIdentity);
+
+    const svgElement = encodeQR(qrContent, 'svg');
 
     const [qrActive, setQrActive] = useState(false);
     const [activeTabIndex, setActiveTabIndex] = useState(0);
@@ -18,9 +21,12 @@ const Profile = () => {
 
     return (
         <>
-            <div className="m-20">
-                {qrActive ? <div dangerouslySetInnerHTML={{ __html: svgElement }} />
-                    : "blob"
+            <div className="my-20">
+                {qrActive ? <div className='m-24' dangerouslySetInnerHTML={{ __html: svgElement }} />
+                    : 
+                    <section className="h-[30vh]">
+                        <BlobBackground identity={userIdentity} />
+                    </section>
                 }
             </div>
 
@@ -45,8 +51,8 @@ const Profile = () => {
                 <div className="">
                     {scheduleActivityItems.items
                         .map((item) => (
-                            <Link to={`${item.id}`}>
-                                <ScheduleCard key={item.image_url} timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url} type={item.type} />
+                            <Link key={item.image_url} to={`${item.id}`}>
+                                <ScheduleCard timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url} type={item.type} />
                             </Link>
                         ))}
                 </div>

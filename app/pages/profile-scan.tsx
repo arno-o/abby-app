@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import AbbyCross from '~/components/icons/AbbyCross';
 import { useNavigate } from 'react-router';
 import jsQR from 'jsqr';
 
@@ -68,6 +69,9 @@ const ProfileScan: React.FC = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-black relative text-white">
+      <div className="fixed top-4 right-4 z-20 cursor-pointer" onClick={() => navigate(-1)}>
+        <AbbyCross size={30}/>
+      </div>
       {error && <div className="absolute p-4 bg-red-700 rounded">{error}</div>}
       <video
         ref={videoRef}

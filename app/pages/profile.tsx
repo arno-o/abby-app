@@ -24,7 +24,7 @@ const Profile = () => {
         <>
             <div className="flex items-center justify-between p-4">
                 <Settings />
-                <Link to="" className="border-2 w-fit px-4 py-1 rounded-full text-xl">
+                <Link to="scan" className="border-2 w-fit px-4 py-1 rounded-full text-xl">
                     Update Identity →
                 </Link>
             </div>

@@ -8,8 +8,11 @@ export default [
         route("/community", "pages/community.tsx"),
         route("/create", "pages/create.tsx"),
         route("/schedule", "pages/schedule.tsx"),
+        route("/schedule/:activityId", "routes/activity.tsx"),
+
         route("/profile", "pages/profile.tsx"),
-        route("/schedule/:activityId", "routes/activity.tsx")
+        route("/profile/scan", "pages/profile-scan.tsx"),
+        route("/profile/scan/success", "pages/profile-scan-success.tsx"),
     ]),
 
     layout("layouts/onboardLayout.tsx", [

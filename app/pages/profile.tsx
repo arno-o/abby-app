@@ -2,6 +2,7 @@ import encodeQR from 'qr';
 import { useState } from "react";
 import { Link } from "react-router";
 import NavBar from "~/components/NavBar";
+import Settings from '~/components/icons/Settings';
 
 import BlobBackground from '~/components/Blob';
 import ScheduleCard from '~/components/ScheduleCard';
@@ -21,6 +22,13 @@ const Profile = () => {
 
     return (
         <>
+            <div className="flex items-center justify-between p-4">
+                <Settings />
+                <Link to="" className="border-2 w-fit px-4 py-1 rounded-full text-xl">
+                    Update Identity →
+                </Link>
+            </div>
+
             <div className="my-20">
                 {qrActive ? <div className='m-24' dangerouslySetInnerHTML={{ __html: svgElement }} />
                     : 
@@ -51,7 +59,7 @@ const Profile = () => {
                 <div className="">
                     {scheduleActivityItems.items
                         .map((item) => (
-                            <Link key={item.image_url} to={`${item.id}`}>
+                            <Link key={item.image_url} to={`/schedule/${item.id}`}>
                                 <ScheduleCard timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url} type={item.type} />
                             </Link>
                         ))}

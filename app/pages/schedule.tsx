@@ -25,7 +25,7 @@ const Schedule = () => {
                     <div className="flex items-center gap-2 border-2 rounded-full w-fit px-4 py-1">
                         June 2025
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="10" viewBox="0 0 17 10" fill="none">
-                            <path d="M15.5 8.5L8.5 1.5L1.5 8.5" stroke="black" stroke-width="2" stroke-linecap="square" />
+                            <path d="M15.5 8.5L8.5 1.5L1.5 8.5" stroke="black" strokeWidth="2" strokeLinecap="square" />
                         </svg>
                     </div>
 

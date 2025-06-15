@@ -1,24 +1,43 @@
-import encodeQR from 'qr';
-import { useState } from "react";
-import { Link } from "react-router";
-import NavBar from "~/components/NavBar";
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router';
+import { useIdentity } from '~/context/IdentityContext';
 import Settings from '~/components/icons/Settings';
-
 import BlobBackground from '~/components/Blob';
-import ScheduleCard from '~/components/ScheduleCard';
-import { scheduleActivityItems, identityItems } from "~/data/data";
+import NavBar from '~/components/NavBar';
+import Loader from '~/components/Loader';
 
 const Profile = () => {
+    const { identityData } = useIdentity();
 
-    const userIdentity = identityItems.items[0];
-    const qrContent = JSON.stringify(userIdentity);
+    let currentIdentity = undefined;
+    if (identityData && typeof identityData === 'object' && identityData.items && Array.isArray(identityData.items) && identityData.items.length > 0) {
+        currentIdentity = identityData.items[0];
+    }
 
-    const svgElement = encodeQR(qrContent, 'svg');
-
+    const [svgElement, setSvgElement] = useState("");
     const [qrActive, setQrActive] = useState(false);
     const [activeTabIndex, setActiveTabIndex] = useState(0);
 
     const activeActivity = `bg-abby-blue text-white`;
+
+    useEffect(() => {
+        const generateQrCode = async () => {
+            if (currentIdentity) {
+                const qrModule = await import('qr');
+                const encodeQR = qrModule.default;
+
+                const qrContent = JSON.stringify(currentIdentity);
+                const svg = encodeQR(qrContent, 'svg');
+                setSvgElement(svg);
+            }
+        };
+
+        generateQrCode();
+    }, [currentIdentity]); 
+
+    if (!currentIdentity) {
+        return <Loader />;
+    }
 
     return (
         <>
@@ -31,9 +50,9 @@ const Profile = () => {
 
             <div className="my-20">
                 {qrActive ? <div className='m-24' dangerouslySetInnerHTML={{ __html: svgElement }} />
-                    : 
+                    :
                     <section className="h-[30vh]">
-                        <BlobBackground identity={userIdentity} />
+                        <BlobBackground identity={currentIdentity} />
                     </section>
                 }
             </div>
@@ -43,7 +62,8 @@ const Profile = () => {
 
                 {qrActive ?
                     <button onClick={() => setQrActive(false)} className="bg-abby-purple w-fit px-4 py-2 rounded-full text-white text-3xl">← My identity</button>
-                    : <button onClick={() => setQrActive(true)} className="bg-abby-purple w-fit px-4 py-2 rounded-full text-white text-3xl">My QR code →</button>
+                    :
+                    <button onClick={() => setQrActive(true)} className="bg-abby-purple w-fit px-4 py-2 rounded-full text-white text-3xl">My QR code →</button>
                 }
             </div>
 
@@ -57,12 +77,6 @@ const Profile = () => {
                 </div>
 
                 <div className="">
-                    {scheduleActivityItems.items
-                        .map((item) => (
-                            <Link key={item.image_url} to={`/schedule/${item.id}`}>
-                                <ScheduleCard timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url} type={item.type} />
-                            </Link>
-                        ))}
                 </div>
             </div>
 

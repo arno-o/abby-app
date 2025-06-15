@@ -3,21 +3,36 @@ import ButtonLink from '~/components/ButtonLink';
 import { useLocation, useNavigate } from 'react-router';
 
 import Lottie from 'react-lottie';
+import { useIdentity, type IdentityData } from '~/context/IdentityContext';
 import ConfirmAnimation from '~/assets/lottie/ConfirmationAnimation.json';
 
 const ProfileScanSuccess = () => {
     const location = useLocation();
+    const { setIdentityData } = useIdentity();
+    const [isClient, setIsClient] = useState(false);
     const navigate = useNavigate();
 
-    const scannedData = location.state?.scannedData || 'No data found.';
-
-    // State to track if we are on the client-side
-    const [isClient, setIsClient] = useState(false);
-
-    // Set isClient to true once the component mounts (i.e., on the client)
     useEffect(() => {
         setIsClient(true);
-    }, []);
+        
+        const scannedDataString = location.state?.scannedData;
+        if (scannedDataString) {
+            try {
+                const parsedData = JSON.parse(scannedDataString);
+                const newIdentityData: IdentityData = { items: [parsedData] };
+
+                setIdentityData(newIdentityData);
+            } catch (error: any) {
+                console.error("Failed to parse or set scanned data:", error);
+                alert(`Error processing QR code: ${error.message}`);
+                navigate('/profile/scan');
+            }
+        } else {
+            console.warn("No scanned data found in location state.");
+            alert("No QR code data found.");
+            navigate('/profile/scan');
+        }
+    }, [location.state, setIdentityData, navigate]);
 
     const defaultOptions = {
         loop: false,
@@ -39,7 +54,6 @@ const ProfileScanSuccess = () => {
                     width={300}
                 />
             ) : (
-                // Optional: Render a placeholder during SSR or initial client render
                 <div style={{ height: 400, width: 400, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     Loading animation...
                 </div>

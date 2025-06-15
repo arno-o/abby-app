@@ -32,7 +32,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      {/* Padding for the navigation bar */}
+      <body className="pb-24">
         {children}
         <ScrollRestoration />
         <Scripts />

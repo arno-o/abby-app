@@ -1,0 +1,11 @@
+const AbbyArrowRight = (props: { size: number }) => {
+    return(
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width={props.size} height={props.size} viewBox="0 0 34 33" fill="none">
+                <path d="M-0.00177752 21.6823L-0.00177765 32.5234L34 21.6823L34 10.2706L-0.00177726 -4.05467e-07L-0.00177739 10.8411L29.3896 15.9764L-0.00177752 21.6823Z" fill="black" />
+            </svg>
+        </div>
+    );
+}
+
+export default AbbyArrowRight;

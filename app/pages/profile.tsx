@@ -5,6 +5,8 @@ import Settings from '~/components/icons/Settings';
 import BlobBackground from '~/components/Blob';
 import NavBar from '~/components/NavBar';
 import Loader from '~/components/Loader';
+import { scheduleActivityItems } from '~/data/data';
+import ScheduleCard from '~/components/ScheduleCard';
 
 const Profile = () => {
     const { identityData } = useIdentity();
@@ -77,6 +79,12 @@ const Profile = () => {
                 </div>
 
                 <div className="">
+                    {scheduleActivityItems.items
+                        .map((item) => (
+                            <Link key={item.image_url} to={`/schedule/${item.id}`}>
+                                <ScheduleCard timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url} type={item.type} />
+                            </Link>
+                        ))}
                 </div>
             </div>
 

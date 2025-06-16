@@ -1,6 +1,6 @@
 import NavBar from "~/components/NavBar";
 import CalendarIcon from "~/components/icons/CalendarIcon";
-import ClockIcon from "~/components/icons/clockIcon";
+import ClockIcon from "~/components/icons/ClockIcon";
 import AbbyArrowSelect from "~/components/icons/AbbyArrowSelect";
 import Button from "~/components/Button";
 import SubmitPopup from "~/components/SubmitPopup";

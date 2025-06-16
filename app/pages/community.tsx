@@ -1,9 +1,9 @@
 import NavBar from "~/components/NavBar";
 
-import { suggestionItems, chosenSuggestionItems } from "../data/data";
 import SuggestionItem from "~/components/SuggestionItem";
 import ChosenSuggestion from "~/components/ChosenSuggestion";
 import AbbyArrowRight from "~/components/icons/AbbyArrowRight";
+import { suggestionItems, chosenSuggestionItems } from "../data/data";
 
 const Community = () => {
     return (

@@ -1,32 +1,16 @@
 import { useState } from "react";
-import AbbyArrowVote from "./icons/AbbyArrowVote";
+import AbbyHeart from "./icons/AbbyHeart";
 
 const SuggestionItem = (props: { title: string, count: number }) => {
-    const [vote, setVote] = useState<'up' | 'down' | null>(null);
+    const [liked, setLiked] = useState<boolean>(false);
     const [displayCount, setDisplayCount] = useState(props.count);
 
-    const handleUpVote = () => {
-        if (vote === 'up') {
-            setVote(null);
-            setDisplayCount(displayCount - 1);
-        } else if (vote === 'down') {
-            setVote('up');
-            setDisplayCount(displayCount + 2);
-        } else {
-            setVote('up');
+    const handleLike = () => {
+        if (!liked) {
+            setLiked(true);
             setDisplayCount(displayCount + 1);
-        }
-    };
-
-    const handleDownVote = () => {
-        if (vote === 'down') {
-            setVote(null);
-            setDisplayCount(displayCount + 1);
-        } else if (vote === 'up') {
-            setVote('down');
-            setDisplayCount(displayCount - 2);
-        } else {
-            setVote('down');
+        } else if (liked) {
+            setLiked(false);
             setDisplayCount(displayCount - 1);
         }
     };
@@ -37,20 +21,13 @@ const SuggestionItem = (props: { title: string, count: number }) => {
             <div className="flex items-center gap-2">
 
                 <button
-                    onClick={handleUpVote}
+                    onClick={handleLike}
                     className="p-1"
                     aria-label="Vote up"
                 >
-                    <AbbyArrowVote position="up" filled={vote === 'up'} />
+                    <AbbyHeart liked={liked}/>
                 </button>
                 <p className="text-lg">{displayCount}</p>
-                <button
-                    onClick={handleDownVote}
-                    className="p-1"
-                    aria-label="Vote down"
-                >
-                    <AbbyArrowVote position="down" filled={vote === 'down'} />
-                </button>
             </div>
         </div>
     );

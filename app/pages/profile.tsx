@@ -53,7 +53,7 @@ const Profile = () => {
             <div className="my-20">
                 {qrActive ? <div className='m-24' dangerouslySetInnerHTML={{ __html: svgElement }} />
                     :
-                    <section className="h-[30vh] overflow-x-hidden">
+                    <section className="h-[30vh] overflow-x-clip">
                         <BlobBackground identity={currentIdentity} />
                     </section>
                 }

@@ -3,6 +3,13 @@ import ScheduleCard from "~/components/ScheduleCard";
 import AbbyArrowLeft from "~/components/icons/AbbyArrowLeft";
 import AbbyArrowRight from "~/components/icons/AbbyArrowRight";
 
+import scheduleImg1 from "~/assets/img/schedule/schedule_item_1.png";
+import scheduleImg2 from "~/assets/img/schedule/schedule_item_2.png";
+import scheduleImg3 from "~/assets/img/schedule/schedule_item_3.png";
+import scheduleImg4 from "~/assets/img/schedule/schedule_item_4.png";
+import scheduleImg5 from "~/assets/img/schedule/schedule_item_5.png";
+import scheduleImg6 from "~/assets/img/schedule/schedule_item_6.png";
+
 import { useState } from 'react';
 import { Link } from "react-router";
 import { scheduleActivityItems } from "~/data/data";
@@ -12,6 +19,8 @@ const Schedule = () => {
     const [activityNavFirst, setActivityNavFirst] = useState(true);
 
     const activeActivity = `bg-abby-blue text-white`;
+
+    const scheduleImages = [scheduleImg1, scheduleImg2, scheduleImg3, scheduleImg4, scheduleImg5, scheduleImg6];
 
     return (
         <>
@@ -74,7 +83,7 @@ const Schedule = () => {
                     .filter(item => activityNavFirst ? item.type === "activity" : item.type === "expo")
                     .map((item) => (
                         <Link to={`${item.id}`}>
-                            <ScheduleCard key={item.image_url} timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url} type={item.type} />
+                            <ScheduleCard key={item.image_url} timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url} type={item.type} image={scheduleImages[item.id]} />
                         </Link>
                     ))}
             </div>

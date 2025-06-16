@@ -1,11 +1,17 @@
-import { Link } from "react-router";
 import Button from "~/components/Button";
 import type { Route } from "./+types/activity";
+import { Link, useNavigate } from "react-router";
 import { scheduleActivityItems } from "../data/data";
 
 import BookmarkIcon from "~/components/icons/BookmarkIcon";
 import AbbyArrowLeft from "~/components/icons/AbbyArrowLeft";
-import img from '~/assets/img/schedule/schedule_item_1.png'
+
+import scheduleImg1 from "~/assets/img/schedule/schedule_item_1.png";
+import scheduleImg2 from "~/assets/img/schedule/schedule_item_2.png";
+import scheduleImg3 from "~/assets/img/schedule/schedule_item_3.png";
+import scheduleImg4 from "~/assets/img/schedule/schedule_item_4.png";
+import scheduleImg5 from "~/assets/img/schedule/schedule_item_5.png";
+import scheduleImg6 from "~/assets/img/schedule/schedule_item_6.png";
 
 export function loader({ params }: Route.LoaderArgs) {
     const scheduleId = params.activityId;
@@ -16,14 +22,18 @@ export function loader({ params }: Route.LoaderArgs) {
 export default function Activity({ loaderData }: Route.ComponentProps) {
     if (!loaderData) { return null; }
     const item = scheduleActivityItems.items[loaderData.itemId];
+
+    const scheduleImages = [scheduleImg1, scheduleImg2, scheduleImg3, scheduleImg4, scheduleImg5, scheduleImg6];
     
+    const navigate = useNavigate();
+
     return(
         <>
             <div className={`${item.type == "activity" ? "bg-abby-green" : "bg-abby-purple"} p-5 flex flex-col gap-5`}>
-                <Link to={"/schedule"} viewTransition>
+                <button onClick={() => navigate(-1)}>
                     <AbbyArrowLeft size={40}/>
-                </Link>
-                <img className="w-full" src={new URL(`../assets/img/schedule/schedule_item_${item.image_url}.png`, import.meta.url).href} alt={item.title} />
+                </button>
+                <img className="w-full" src={scheduleImages[loaderData.itemId]} alt={item.title} />
 
                 <div className="flex items-center justify-between">
                     <p className="text-4xl">{item.title}</p>

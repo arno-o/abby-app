@@ -2,10 +2,16 @@ import { onboardingItems } from "../data/data";
 import type { Route } from "./+types/onboarding";
 import ButtonIcon from "~/components/ButtonIcon";
 
+import AbbyYou from "~/components/icons/AbbyYou";
 import AbbyCross from "~/components/icons/AbbyCross";
 import FourStepProgress from "~/components/fourStepProgress";
 import AbbyArrowLeft from "~/components/icons/AbbyArrowLeft";
 import AbbyArrowRight from "~/components/icons/AbbyArrowRight";
+
+import onboardingImg1 from "~/assets/img/onboarding/onboarding_img_1.png";
+import onboardingImg2 from "~/assets/img/onboarding/onboarding_img_2.png";
+import onboardingImg3 from "~/assets/img/onboarding/onboarding_img_3.png";
+import onboardingImg4 from "~/assets/img/onboarding/onboarding_img_4.png";
 
 export function loader({ params }: Route.LoaderArgs) {
     const onboardingId = params.onbId;
@@ -15,6 +21,8 @@ export function loader({ params }: Route.LoaderArgs) {
 
 export default function Onboarding({ loaderData }: Route.ComponentProps) {
 
+    const images = [onboardingImg1, onboardingImg2, onboardingImg3, onboardingImg4];
+
     const activePage = onboardingItems.items[loaderData.pageId];
     const colorOptions = ["blue", "green", "yellow", "purple"];
 
@@ -23,7 +31,7 @@ export default function Onboarding({ loaderData }: Route.ComponentProps) {
     return (
         <div className={`h-[100vh] flex flex-col justify-between px-[12px] pb-16 pt-8 bg-abby-${activeColor}`}>
             <div id="topNav" className="flex justify-between">
-                <img src="/app/assets/img/AbbyYou_Logo.svg" alt="Abby You - Logo" width="170vw" />
+                <AbbyYou />
                 <ButtonIcon link="/">
                     <AbbyCross size={35}/>
                 </ButtonIcon>
@@ -33,7 +41,7 @@ export default function Onboarding({ loaderData }: Route.ComponentProps) {
                     <h3 className="text-4xl">{activePage.title}</h3>
                     <p className="text-2xl">{activePage.description}</p>
                 </div>
-                <img src={new URL(`../assets/img/onboarding/onboarding_img_${loaderData.pageId + 1}.png`, import.meta.url).href} alt="Old couple at the Abby museum" className={loaderData.pageId === 2 ? "scale-[150%] my-12" : ""}/>
+                <img src={images[loaderData.pageId]} alt="Old couple at the Abby museum" className={loaderData.pageId === 2 ? "scale-[150%] my-12" : ""}/>
             </div>
             <div id="bottomNav" className="flex justify-between w-full pb-6">
                 <ButtonIcon link={loaderData.pageId === 0 ? "" : `/onboarding/${loaderData.pageId - 1}`} disabled={loaderData.pageId === 0}>

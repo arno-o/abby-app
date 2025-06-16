@@ -8,6 +8,13 @@ import Loader from '~/components/Loader';
 import { scheduleActivityItems } from '~/data/data';
 import ScheduleCard from '~/components/ScheduleCard';
 
+import scheduleImg1 from "~/assets/img/schedule/schedule_item_1.png";
+import scheduleImg2 from "~/assets/img/schedule/schedule_item_2.png";
+import scheduleImg3 from "~/assets/img/schedule/schedule_item_3.png";
+import scheduleImg4 from "~/assets/img/schedule/schedule_item_4.png";
+import scheduleImg5 from "~/assets/img/schedule/schedule_item_5.png";
+import scheduleImg6 from "~/assets/img/schedule/schedule_item_6.png";
+
 const Profile = () => {
     const { identityData } = useIdentity();
 
@@ -22,6 +29,9 @@ const Profile = () => {
 
     const activeActivity = `bg-abby-blue text-white`;
 
+    const scheduleImages = [scheduleImg1, scheduleImg2, scheduleImg3, scheduleImg4, scheduleImg5, scheduleImg6];
+
+
     useEffect(() => {
         const generateQrCode = async () => {
             if (currentIdentity) {
@@ -35,7 +45,7 @@ const Profile = () => {
         };
 
         generateQrCode();
-    }, [currentIdentity]); 
+    }, [currentIdentity]);
 
     if (!currentIdentity) {
         return <Loader />;
@@ -82,7 +92,7 @@ const Profile = () => {
                     {scheduleActivityItems.items
                         .map((item) => (
                             <Link key={item.image_url} to={`/schedule/${item.id}`}>
-                                <ScheduleCard timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url} type={item.type} />
+                                <ScheduleCard timespan={item.timespan} title={item.title} location={item.location} image_url={item.image_url} type={item.type} image={scheduleImages[item.id]}/>
                             </Link>
                         ))}
                 </div>

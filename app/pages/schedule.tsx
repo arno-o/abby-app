@@ -36,28 +36,28 @@ const Schedule = () => {
                 </div>
 
                 <div className="flex flex-row justify-between">
-                    <div className="flex flex-col text-center text-xl border-3 p-2 justify-center w-full mr-2 opacity-50">
+                    <div className="flex flex-col text-center text-xl border-3 p-2 justify-center opacity-50">
                         <p>Fri</p>
                         <p className="text-2xl font-bold">6</p>
                     </div>
 
-                    <div className="flex flex-col text-center text-xl border-3 p-2 justify-center w-full mx-2 opacity-50">
+                    <div className="flex flex-col text-center text-xl border-3 p-2 justify-center opacity-50">
                         <p>Sat</p>
                         <p className="text-2xl font-bold">7</p>
                     </div>
 
-                    <div className="flex flex-col text-center text-xl border-3 p-2 bg-abby-blue w-full mx-2">
+                    <div className="flex flex-col text-center text-xl border-3 p-2 bg-abby-blue">
                         <p>Sun</p>
                         <p className="text-2xl font-bold">8</p>
                         <p>Today</p>
                     </div>
 
-                    <div className="flex flex-col text-center text-xl border-3 p-2 justify-center w-full mx-2">
+                    <div className="flex flex-col text-center text-xl border-3 p-2 justify-center">
                         <p>Mon</p>
                         <p className="text-2xl font-bold">9</p>
                     </div>
 
-                    <div className="flex flex-col text-center text-xl border-3 p-2 justify-center w-full ml-2">
+                    <div className="flex flex-col text-center text-xl border-3 p-2 justify-center">
                         <p>Tue</p>
                         <p className="text-2xl font-bold">10</p>
                     </div>

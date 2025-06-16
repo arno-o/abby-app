@@ -53,14 +53,14 @@ const Profile = () => {
             <div className="my-20">
                 {qrActive ? <div className='m-24' dangerouslySetInnerHTML={{ __html: svgElement }} />
                     :
-                    <section className="h-[30vh]">
+                    <section className="h-[30vh] overflow-hidden">
                         <BlobBackground identity={currentIdentity} />
                     </section>
                 }
             </div>
 
             <div className="flex flex-col items-center gap-5">
-                <h1 className="text-5xl font-bold text-abby-purple">Good Evening, John</h1>
+                <h1 className="text-4xl font-bold text-abby-purple">Good Evening, John</h1>
 
                 {qrActive ?
                     <button onClick={() => setQrActive(false)} className="bg-abby-purple w-fit px-4 py-2 rounded-full text-white text-3xl">← My identity</button>
@@ -72,10 +72,10 @@ const Profile = () => {
             <div className="flex flex-col p-4 gap-4">
                 <h2 className="text-2xl">My Activities</h2>
 
-                <div className="flex justify-between bg-stone-200">
-                    <button onClick={() => setActiveTabIndex(0)} className={`transition-all m-3 text-center w-full p-4 text-abby-blue text-xl ${activeTabIndex == 0 ? activeActivity : ""}`}>Going</button>
-                    <button onClick={() => setActiveTabIndex(1)} className={`transition-all m-3 text-center w-full p-4 text-abby-blue text-xl ${activeTabIndex == 1 ? activeActivity : ""}`}>Saved</button>
-                    <button onClick={() => setActiveTabIndex(2)} className={`transition-all m-3 text-center w-full p-4 text-abby-blue text-xl ${activeTabIndex == 2 ? activeActivity : ""}`}>Organised</button>
+                <div className="flex flex-row justify-between bg-stone-200">
+                    <button onClick={() => setActiveTabIndex(0)} className={`transition-all m-2 text-center p-4 w-fitd text-abby-blue text-md ${activeTabIndex == 0 ? activeActivity : ""}`}>Going</button>
+                    <button onClick={() => setActiveTabIndex(1)} className={`transition-all m-2 text-center p-4 w-fitd text-abby-blue text-md ${activeTabIndex == 1 ? activeActivity : ""}`}>Saved</button>
+                    <button onClick={() => setActiveTabIndex(2)} className={`transition-all m-2 text-center p-4 w-fitd text-abby-blue text-md ${activeTabIndex == 2 ? activeActivity : ""}`}>Organised</button>
                 </div>
 
                 <div className="">

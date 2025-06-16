@@ -48,7 +48,7 @@ const NavBar = () => {
     }
 
     return (
-        <div className="flex justify-between content-end px-[18px] pb-7 bg-abby-blue w-full z-5 fixed bottom-0">
+        <div className="flex justify-between content-end px-[18px] pb-4 bg-abby-blue w-full z-5 fixed bottom-0">
             {navData.items.map((item) => {
 
                 const itemIsActive = isActive(`/${item.linkTo}`);

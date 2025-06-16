@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+import { IdentityProvider } from "./context/IdentityContext"; // <-- 1. IMPORT THE PROVIDER
 import type { Route } from "./+types/root";
 import "./app.css";
 
@@ -32,9 +33,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      {/* Padding for the navigation bar */}
       <body className="pb-24">
-        {children}
+        <IdentityProvider>
+          {children}
+        </IdentityProvider>
+        
         <ScrollRestoration />
         <Scripts />
       </body>

@@ -14,6 +14,14 @@ export interface ScheduleActivityData {
     items: ScheduleActivityItem[];
 }
 
+export interface IdentityData {
+    items: IdentityItem[];
+}
+
+export interface RoomData {
+    items: RoomItem[];
+}
+
 export interface OnboardingItem {
     linkTo: string;
     title: string;
@@ -42,6 +50,23 @@ export interface ScheduleActivityItem {
     type: string;
     subtitle: string;
     description: string;
+}
+
+export interface IdentityItem {
+    id: string;
+    g1: number;
+    g2: number;
+    g3: number;
+    g4: number;
+    g5: number;
+    g6: number;
+}
+
+export interface RoomItem {
+    id: number;
+    roomName: string;
+    occupants: number;
+    activityId: number;
 }
 
 export const onboardingItems: OnboardingData = {
@@ -178,6 +203,43 @@ export const scheduleActivityItems: ScheduleActivityData = {
             type: "activity",
             subtitle: "Artistic construction photography about the birth of a new museum",
             description: "Dieter Van Caneghem (Kortrijk, 1990) is a photographer who is fascinated by the constructed landscape. He uses photography as a medium to raise questions about how space is designed and planned. \n\nIn addition to being a photographer, he is also the co-founder of ELDERS, a nomadic collective for the presentation of contemporary artistic practices in Kortrijk and the region. For Abby, he documented the progress of the construction site for two years."
+        }
+    ]
+}
+
+export const identityItems: IdentityData = {
+    items: [
+        {
+            id: "default",
+            g1: 1,
+            g2: 0.8,
+            g3: 0.5,
+            g4: 0,
+            g5: 0.3,
+            g6: 0.4,
+        }
+    ]
+}
+
+export const roomItems: RoomData = {
+    items: [
+        {
+            id: 0,
+            roomName: "Atelier",
+            occupants: 6,
+            activityId: 1
+        },
+        {
+            id: 1,
+            roomName: "Living",
+            occupants: 4,
+            activityId: 2
+        },
+        {
+            id: 2,
+            roomName: "Salon",
+            occupants: 5,
+            activityId: 3
         }
     ]
 }

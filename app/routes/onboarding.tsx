@@ -33,7 +33,7 @@ export default function Onboarding({ loaderData }: Route.ComponentProps) {
                     <h3 className="text-4xl">{activePage.title}</h3>
                     <p className="text-2xl">{activePage.description}</p>
                 </div>
-                <img src={`/app/assets/img/onboarding/onboarding_img_${loaderData.pageId + 1}.png`} alt="Old couple at the Abby museum" className={loaderData.pageId === 2 ? "scale-[150%] my-12" : ""}/>
+                <img src={new URL(`../assets/img/onboarding/onboarding_img_${loaderData.pageId + 1}.png`, import.meta.url).href} alt="Old couple at the Abby museum" className={loaderData.pageId === 2 ? "scale-[150%] my-12" : ""}/>
             </div>
             <div id="bottomNav" className="flex justify-between w-full pb-6">
                 <ButtonIcon link={loaderData.pageId === 0 ? "" : `/onboarding/${loaderData.pageId - 1}`} disabled={loaderData.pageId === 0}>

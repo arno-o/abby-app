@@ -13,7 +13,13 @@ export default function Home() {
   let navigate = useNavigate();
 
   useEffect(() => {
-    navigate("/live", { viewTransition: true });
+    const onboardingDone = localStorage.getItem("onboardingDone");
+    if (!onboardingDone) {
+      localStorage.setItem("onboardingDone", "true");
+      navigate("/onboarding/0", { viewTransition: true });
+    } else {
+      navigate("/live", { viewTransition: true });
+    }
   }, [navigate]);
   
   return;

@@ -5,6 +5,7 @@ import { scheduleActivityItems } from "../data/data";
 
 import BookmarkIcon from "~/components/icons/BookmarkIcon";
 import AbbyArrowLeft from "~/components/icons/AbbyArrowLeft";
+import img from '~/assets/img/schedule/schedule_item_1.png'
 
 export function loader({ params }: Route.LoaderArgs) {
     const scheduleId = params.activityId;
@@ -22,7 +23,7 @@ export default function Activity({ loaderData }: Route.ComponentProps) {
                 <Link to={"/schedule"} viewTransition>
                     <AbbyArrowLeft size={40}/>
                 </Link>
-                <img className="w-full" src={`../app/assets/img/schedule/schedule_item_${item.image_url}.png`} />
+                <img className="w-full" src={new URL(`../assets/img/schedule/schedule_item_${item.image_url}.png`, import.meta.url).href} alt={item.title} />
 
                 <div className="flex items-center justify-between">
                     <p className="text-4xl">{item.title}</p>
@@ -33,7 +34,7 @@ export default function Activity({ loaderData }: Route.ComponentProps) {
             <div className="p-5 flex flex-col gap-3">
                 <h2 className="text-2xl">{item.subtitle}</h2>
                 <p className="">{item.description}</p>
-
+            
                 <Button color="yellow" arrow={true}>Register now</Button>
             </div>
 

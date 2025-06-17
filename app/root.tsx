@@ -33,7 +33,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="pb-24">
+      <body className="">
         <IdentityProvider>
           {children}
         </IdentityProvider>

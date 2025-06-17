@@ -45,7 +45,7 @@ const ProfileScanSuccess = () => {
 
     return (
         <div className="flex flex-col items-center p-16 gap-5">
-            <h2 className="text-6xl text-abby-purple font-bold">All set up!</h2>
+            <h2 className="text-4xl text-abby-purple font-bold">All set up!</h2>
 
             {isClient ? (
                 <Lottie

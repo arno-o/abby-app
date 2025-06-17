@@ -61,13 +61,17 @@ const Profile = () => {
             </div>
 
             <div className="my-20">
-                {qrActive ? <div className='m-24' dangerouslySetInnerHTML={{ __html: svgElement }} />
-                    :
-                    <section className="h-[30vh] overflow-x-clip">
-                        <BlobBackground identity={currentIdentity} />
-                    </section>
-                }
-            </div>
+            {qrActive ? (
+                <>
+                    <p className="text-center mx-4 text-xl text-stone-600">Scan this QR code to join any activities or expo’s you’ve registered for on the app.</p>
+                    <div className='mx-24 mt-4' dangerouslySetInnerHTML={{ __html: svgElement }} />
+                </>
+            ) : (
+                <section className="h-[30vh] overflow-x-clip">
+                    <BlobBackground identity={currentIdentity} />
+                </section>
+            )}
+        </div >
 
             <div className="flex flex-col items-center gap-5">
                 <h1 className="text-4xl font-bold text-abby-purple">Good Evening, John</h1>

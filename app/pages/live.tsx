@@ -52,7 +52,7 @@ const Live = () => {
                                 <div className="flex gap-3">
                                     <span className="p-1 border-3 h-fit">NOW</span>
                                     <div className="flex flex-col gap-2">
-                                        <p className="text-3xl">{scheduleActivityItems.items[activeRoom.id].title}</p>
+                                        <p className="text-2xl">{scheduleActivityItems.items[activeRoom.id].title}</p>
                                         <p className="text-xl">{scheduleActivityItems.items[activeRoom.id].location}</p>
                                     </div>
                                 </div>

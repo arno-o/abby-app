@@ -30,7 +30,7 @@ const Schedule = () => {
                     <button onClick={() => setDateNavFirst(false)} className={`${!dateNavFirst ? "border-b-4" : "border-b-2"} w-full transition-all`}><div className=" text-center p-5 text-xl">Show All</div></button>
                 </div>
 
-                <div className="flex items-center justify-between">
+                <div className={`flex items-center justify-between ${!dateNavFirst ? 'hidden' : ''}`}>
                     <div className="flex items-center gap-2 border-2 rounded-full w-fit px-4 py-1">
                         June 2025
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="10" viewBox="0 0 17 10" fill="none">
@@ -44,7 +44,7 @@ const Schedule = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-row justify-between">
+                <div className={`flex flex-row justify-between ${!dateNavFirst ? 'hidden' : ''}`}>
                     <div className="flex flex-col text-center text-xl border-3 p-2 justify-center opacity-50">
                         <p>Fri</p>
                         <p className="text-2xl font-bold">6</p>

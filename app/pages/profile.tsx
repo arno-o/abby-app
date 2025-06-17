@@ -77,9 +77,9 @@ const Profile = () => {
                 <h1 className="text-4xl font-bold text-abby-purple">Good Evening, John</h1>
 
                 {qrActive ?
-                    <button onClick={() => setQrActive(false)} className="bg-abby-purple w-fit px-4 py-2 rounded-full text-white text-3xl">← My identity</button>
+                    <button onClick={() => setQrActive(false)} className="bg-abby-purple w-fit px-4 py-2 rounded-full text-white text-xl">← My identity</button>
                     :
-                    <button onClick={() => setQrActive(true)} className="bg-abby-purple w-fit px-4 py-2 rounded-full text-white text-3xl">My QR code →</button>
+                    <button onClick={() => setQrActive(true)} className="bg-abby-purple w-fit px-4 py-2 rounded-full text-white text-xl">My QR code →</button>
                 }
             </div>
 

@@ -41,7 +41,7 @@ export default function Onboarding({ loaderData }: Route.ComponentProps) {
                     <h3 className="text-4xl">{activePage.title}</h3>
                     <p className="text-2xl">{activePage.description}</p>
                 </div>
-                <img src={images[loaderData.pageId]} alt="Old couple at the Abby museum" className={loaderData.pageId === 2 ? "scale-[150%] my-12" : ""}/>
+                <img src={images[loaderData.pageId]} alt="Old couple at the Abby museum" className={loaderData.pageId === 2 ? "my-12 scale-[106%]" : ""}/>
             </div>
             <div id="bottomNav" className="flex justify-between w-full pb-6">
                 <ButtonIcon link={loaderData.pageId === 0 ? "" : `/onboarding/${loaderData.pageId - 1}`} disabled={loaderData.pageId === 0}>
